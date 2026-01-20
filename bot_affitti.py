@@ -73,8 +73,17 @@ def main():
             seen.add(ad["id"])
             new_ads.append(ad)
 
+    # EMAIL DI TEST FORZATA SE NON CI SONO ANNUNCI
+    if not new_ads:
+        new_ads.append({
+            "title": "EMAIL DI TEST - Bot Affitti Torino",
+            "price": "Test riuscito",
+            "link": "Il bot funziona correttamente"
+        })
+
     send_email(new_ads)
     save_seen(seen)
+
 
 if __name__ == "__main__":
     main()
